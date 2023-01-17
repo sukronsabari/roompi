@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -8,9 +8,11 @@ import {
   IconPoint,
 } from '@tabler/icons';
 import parse from 'html-react-parser';
+import hljs from 'highlight.js';
 import TagList from '../TagList';
 import ButtonIconWithCounter from '../ButtonActionWithCounter';
 import { postedAtShortDate, getTags } from '../../utils';
+import 'highlight.js/styles/github.css';
 
 function ThreadItem({
   id,
@@ -43,6 +45,10 @@ function ThreadItem({
     if (authUser) downVoteThreadHandler(id);
     else showLoginModal();
   };
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
 
   return (
     <article className="p-6 border-b border-b-slate-100">

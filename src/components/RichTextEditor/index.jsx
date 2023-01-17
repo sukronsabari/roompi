@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import PropTypes from 'prop-types';
 import hljs from 'highlight.js';
 import ctl from '@netlify/classnames-template-literals';
+import 'highlight.js/styles/monokai-sublime.css';
 import 'react-quill/dist/quill.snow.css';
 
 function RichTextEditor({ value, handleChange, border = 'border-slate-400' }) {
@@ -32,6 +33,11 @@ function RichTextEditor({ value, handleChange, border = 'border-slate-400' }) {
     [&>.ql-container]:${border}
     [&>.ql-container]:rounded-b-md
   `);
+
+  hljs.configure({
+    // optionally configure hljs
+    languages: ['javascript', 'ruby', 'python'],
+  });
 
   return (
     <div>
