@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   IconPoint,
   IconThumbUp,
@@ -7,6 +7,7 @@ import {
 } from '@tabler/icons';
 import PropTypes from 'prop-types';
 import parse from 'html-react-parser';
+import hljs from 'highlight.js';
 import UserProfile from '../UserProfile';
 import { getTags, postedAtLongDate } from '../../utils';
 import { userShape, commentShape } from './shape';
@@ -15,6 +16,7 @@ import ButtonIconWithCounter from '../ButtonActionWithCounter';
 import RichTextEditor from '../RichTextEditor';
 import Button from '../Button';
 import CommentList from '../CommentList';
+import 'highlight.js/styles/atom-one-dark.css';
 
 function DetailThread({
   id,
@@ -53,6 +55,12 @@ function DetailThread({
     if (authUser) downVoteThreadHandler(id);
     else showLoginModal();
   };
+
+  useEffect(() => {
+    document.querySelectorAll('.ql-syntax').forEach((el) => {
+      hljs.highlightElement(el);
+    });
+  }, []);
 
   return (
     <article>

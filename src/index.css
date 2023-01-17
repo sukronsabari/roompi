@@ -31,4 +31,8 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  pre.ql-syntax {
+    @apply p-4 rounded;
+  }
 }

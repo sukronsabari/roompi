@@ -12,7 +12,6 @@ import hljs from 'highlight.js';
 import TagList from '../TagList';
 import ButtonIconWithCounter from '../ButtonActionWithCounter';
 import { postedAtShortDate, getTags } from '../../utils';
-import 'highlight.js/styles/github.css';
 
 function ThreadItem({
   id,
@@ -47,7 +46,9 @@ function ThreadItem({
   };
 
   useEffect(() => {
-    hljs.highlightAll();
+    document.querySelectorAll('.ql-syntax').forEach((el) => {
+      hljs.highlightElement(el);
+    });
   }, []);
 
   return (
