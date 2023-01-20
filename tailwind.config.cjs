@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
         quicksand: ['Quicksand', 'sans-serif'],
-        'JetBrains Mono': ['JetBrains Mono', 'monospace'],
+        poppins: ['Poppins', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif'],
       },
       boxShadow: {
         navbar: 'inset 0 -1px 0 0 rgba(0, 0, 0, 0.125);',

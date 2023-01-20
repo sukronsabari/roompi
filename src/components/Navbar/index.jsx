@@ -26,9 +26,8 @@ function Navbar({ authUser, onLogout }) {
           <div>
             {authUser ? (
               <div
-                role="button"
                 tabIndex={-1}
-                className="flex items-center space-x-2 relative active:bg-transparent focus:bg-transparent"
+                className="flex items-center space-x-2 relative cursor-pointer"
                 onClick={onOpenMenuHandler}
               >
                 <UserProfile avatar={authUser.avatar} />
@@ -48,15 +47,15 @@ function Navbar({ authUser, onLogout }) {
                       </div>
                     </div>
                     <div className="p-4 text-paragraph text-sm">
-                      <Link
-                        to={`mailto:${authUser?.email}`}
-                        relative="path"
+                      <a
+                        href={`mailto:${authUser?.email}`}
                         target="_blank"
                         className="flex items-center mb-6 space-x-4"
+                        rel="noreferrer"
                       >
                         <IconMail />
                         <span>Send Mail</span>
-                      </Link>
+                      </a>
                       <ButtonFullWidth
                         bgcolorClass="bg-transparent"
                         colorClass="text-paragraph"

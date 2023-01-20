@@ -71,7 +71,7 @@ function HomePage() {
     dispatch(asyncAddThread({ title, body, category }));
   };
 
-  const onTagActive = (event) => {
+  const setTagActiveHandler = (event) => {
     const tagName = event.target.innerText.split('#')[1];
     setTagActive((prevTag) => (prevTag !== tagName ? tagName : ''));
   };
@@ -130,6 +130,8 @@ function HomePage() {
                 upVoteThreadHandler={upVoteThreadHandler}
                 downVoteThreadHandler={downVoteThreadHandler}
                 showLoginModal={showLoginModalHandler}
+                setTagActive={setTagActiveHandler}
+                tagActive={tagActive}
               />
             </div>
           </div>
@@ -153,21 +155,25 @@ function HomePage() {
               <TagList
                 tagActive={tagActive}
                 tags={uniqueTags}
-                handleClick={onTagActive}
+                handleClick={setTagActiveHandler}
                 role="button"
               />
             </div>
           </div>
         </div>
-        <div className="xl:hidden fixed bottom-24 right-4">
-          <ButtonIcon
-            handleClick={showAddThreadModalHandler}
-            classNameInner="bg-primary text-white rounded-full"
-            className="[&>div]:disabled:bg-slate-400"
-            isDisable={!authUser}
-          >
-            <IconPlus />
-          </ButtonIcon>
+        <div>
+          {authUser && (
+            <div className="xl:hidden fixed bottom-24 right-4">
+              <ButtonIcon
+                handleClick={showAddThreadModalHandler}
+                classNameInner="bg-primary text-white rounded-full"
+                className="[&>div]:disabled:bg-slate-400"
+                isDisable={!authUser}
+              >
+                <IconPlus />
+              </ButtonIcon>
+            </div>
+          )}
         </div>
         {showAddThreadModal && authUser ? (
           <AddThreadModal

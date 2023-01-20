@@ -8,6 +8,8 @@ function ThreadList({
   upVoteThreadHandler,
   downVoteThreadHandler,
   showLoginModal,
+  setTagActive,
+  tagActive,
 }) {
   return (
     <div>
@@ -19,6 +21,8 @@ function ThreadList({
             upVoteThreadHandler={upVoteThreadHandler}
             downVoteThreadHandler={downVoteThreadHandler}
             showLoginModal={showLoginModal}
+            setTagActive={setTagActive}
+            tagActive={tagActive}
           />
         ))}
     </div>
@@ -30,6 +34,8 @@ ThreadList.propTypes = {
   upVoteThreadHandler: PropTypes.func.isRequired,
   downVoteThreadHandler: PropTypes.func.isRequired,
   showLoginModal: PropTypes.func.isRequired,
+  setTagActive: PropTypes.func,
+  tagActive: PropTypes.string,
 };
 
 export default ThreadList;

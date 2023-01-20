@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-quicksand text-sm text-slate-800 md:text-base;
+    @apply font-open-sans text-base text-slate-800;
   }
 
   h1,

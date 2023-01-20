@@ -40,7 +40,9 @@ function CommentItem({
         <UserProfile avatar={owner?.avatar} />
         <div>
           <p className="font-bold">{owner?.name}</p>
-          <p className="text-sm mt-1">{`${postedAtLongDate(createdAt)} ago`}</p>
+          <p className="text-sm mt-1 text-paragraph">
+            {`${postedAtLongDate(createdAt)} ago`}
+          </p>
         </div>
       </div>
       <div title="text comment" className="mb-8">

@@ -12,6 +12,7 @@ import hljs from 'highlight.js';
 import TagList from '../TagList';
 import ButtonIconWithCounter from '../ButtonActionWithCounter';
 import { postedAtShortDate, getTags } from '../../utils';
+import 'highlight.js/styles/atom-one-dark.css';
 
 function ThreadItem({
   id,
@@ -27,6 +28,8 @@ function ThreadItem({
   upVoteThreadHandler,
   downVoteThreadHandler,
   showLoginModal,
+  setTagActive,
+  tagActive,
 }) {
   const navigate = useNavigate();
   const tags = getTags(category);
@@ -59,7 +62,12 @@ function ThreadItem({
       <div className="text-paragraph text-sm font-normal multiline-trancate mb-6 lg:text-base">
         {parse(body)}
       </div>
-      <TagList tags={tags} />
+      <TagList
+        role="button"
+        tags={tags}
+        tagActive={tagActive}
+        handleClick={setTagActive}
+      />
       <div className="flex justify-between mt-8">
         <div className="flex space-x-4 flex-1">
           <ButtonIconWithCounter
@@ -132,6 +140,8 @@ ThreadItem.propTypes = {
   upVoteThreadHandler: PropTypes.func.isRequired,
   downVoteThreadHandler: PropTypes.func.isRequired,
   showLoginModal: PropTypes.func,
+  setTagActive: PropTypes.func,
+  tagActive: PropTypes.string,
 };
 
 export { threadItemShape };
