@@ -23,15 +23,18 @@ function Navbar({ authUser, onLogout }) {
           <div>
             <Logo />
           </div>
-          <div>
+          <div className="relative">
             {authUser ? (
-              <div
-                tabIndex={-1}
-                className="flex items-center space-x-2 relative cursor-pointer"
-                onClick={onOpenMenuHandler}
-              >
-                <UserProfile avatar={authUser.avatar} />
-                <IconChevronDown size={16} />
+              <>
+                <div
+                  role="button"
+                  tabIndex={-1}
+                  className="flex items-center space-x-2 cursor-pointer"
+                  onClick={onOpenMenuHandler}
+                >
+                  <UserProfile avatar={authUser.avatar} />
+                  <IconChevronDown size={16} />
+                </div>
                 <div
                   className={`${
                     openMenu ? 'block' : 'hidden'
@@ -67,7 +70,7 @@ function Navbar({ authUser, onLogout }) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </>
             ) : (
               <div className="space-x-2">
                 <Link

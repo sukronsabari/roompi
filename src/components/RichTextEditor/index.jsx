@@ -11,12 +11,12 @@ function RichTextEditor({ value, handleChange, border = 'border-slate-400' }) {
   const modules = {
     toolbar: [
       ['bold', 'italic', 'underline'],
-      ['link', 'image', 'code-block'],
+      ['link', 'image', 'code'],
       [{ list: 'ordered' }, { list: 'bullet' }],
     ],
   };
   const formats = [
-    'code-block',
+    'code',
     'bold',
     'italic',
     'underline',

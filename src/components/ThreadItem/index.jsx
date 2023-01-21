@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -8,11 +8,9 @@ import {
   IconPoint,
 } from '@tabler/icons';
 import parse from 'html-react-parser';
-import hljs from 'highlight.js';
 import TagList from '../TagList';
 import ButtonIconWithCounter from '../ButtonActionWithCounter';
 import { postedAtShortDate, getTags } from '../../utils';
-import 'highlight.js/styles/atom-one-dark.css';
 
 function ThreadItem({
   id,
@@ -48,14 +46,8 @@ function ThreadItem({
     else showLoginModal();
   };
 
-  useEffect(() => {
-    document.querySelectorAll('.ql-syntax').forEach((el) => {
-      hljs.highlightElement(el);
-    });
-  }, []);
-
   return (
-    <article className="p-6 border-b border-b-slate-100">
+    <article className="p-6 border-b border-b-slate-100 w-full">
       <Link to={`/threads/${id}`} className="block mb-3">
         <h1 className="text-primary text-lg lg:text-lg">{title}</h1>
       </Link>

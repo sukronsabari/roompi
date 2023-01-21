@@ -9,23 +9,30 @@ function TagInput({ tags, setTags, id }) {
   const [inputValue, setInputValue] = useState('');
 
   const onInputValueChange = ({ target }) => {
-    if (tags.length < 2) setInputValue(target.value);
+    if (tags.length < 2) {
+      setInputValue(target.value);
+    }
   };
 
   const addTag = (newTag) => {
     const newTagTrimmed = newTag.trim();
     const newTagNoComma = newTagTrimmed.split(',')[0];
+
     if (newTagNoComma && tags.length < 2) {
       setTags((prevTag) => [...prevTag, newTagNoComma]);
       setInputValue('');
     }
   };
 
-  const onAddTag = ({ key, target }) => {
-    const addKeyIsPress = key === 'Enter' || key === ',';
+  const onAddTag = ({ key }) => {
+    const addKeyIsPress = key === 'Enter' || inputValue.includes(',');
     if (addKeyIsPress) {
-      addTag(target.value);
+      addTag(inputValue);
     }
+  };
+
+  const onBlurAddTag = () => {
+    addTag(inputValue);
   };
 
   const deleteTag = (tagName) => {
@@ -66,6 +73,7 @@ function TagInput({ tags, setTags, id }) {
           value={inputValue}
           onChange={onInputValueChange}
           onKeyUp={onAddTag}
+          onBlur={onBlurAddTag}
         />
       </span>
     </div>
