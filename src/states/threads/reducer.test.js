@@ -8,7 +8,7 @@
  *      when given by UP_VOTE_THREAD action
  *    - should return threads with one of the threads already downVoted
  *      when given by DOWN_VOTE_THREAD action
- *    - should return threads with no userId specified when given by NEUTRALIZE_VOTE_THREAD
+ *    - should return unVoted threads when given by NEUTRALIZE_VOTE_THREAD
  */
 
 import { describe, expect, it } from 'vitest';
@@ -169,7 +169,7 @@ describe('threadReducer function', () => {
     ]);
   });
 
-  it('should return threads with no userId specified when given by NEUTRALIZE_VOTE_THREAD', () => {
+  it('should return unVoted threads when given by NEUTRALIZE_VOTE_THREAD', () => {
     // arrange
     const initialState = [
       {
