@@ -36,31 +36,28 @@ function clearDetailThreadActionCreator() {
   };
 }
 
-function upVoteDetailThreadActionCreator({ threadId, userId }) {
+function upVoteDetailThreadActionCreator({ userId }) {
   return {
     type: ActionType.UP_VOTE_DETAIL_THREAD,
     payload: {
-      threadId,
       userId,
     },
   };
 }
 
-function downVoteDetailThreadActionCreator({ threadId, userId }) {
+function downVoteDetailThreadActionCreator({ userId }) {
   return {
     type: ActionType.DOWN_VOTE_DETAIL_THREAD,
     payload: {
-      threadId,
       userId,
     },
   };
 }
 
-function neutralizeDetailVoteThread({ threadId, userId }) {
+function neutralizeDetailVoteThread({ userId }) {
   return {
     type: ActionType.NEUTRALIZE_DETAIL_VOTE,
     payload: {
-      threadId,
       userId,
     },
   };
@@ -94,26 +91,22 @@ function asyncUpVoteDetailThread(threadId) {
     });
 
     if (selectedTreadIsVoted) {
-      dispatch(neutralizeDetailVoteThread({ threadId, userId: authUser.id }));
+      dispatch(neutralizeDetailVoteThread({ userId: authUser.id }));
 
       try {
         await api.neutralizeVoteThread(threadId);
       } catch (error) {
         alert(error.message);
-        dispatch(neutralizeDetailVoteThread({ threadId, userId: authUser.id }));
+        dispatch(neutralizeDetailVoteThread({ userId: authUser.id }));
       }
     } else {
-      dispatch(
-        upVoteDetailThreadActionCreator({ threadId, userId: authUser.id }),
-      );
+      dispatch(upVoteDetailThreadActionCreator({ userId: authUser.id }));
 
       try {
         await api.upVoteThread(threadId);
       } catch (error) {
         alert(error.message);
-        dispatch(
-          upVoteDetailThreadActionCreator({ threadId, userId: authUser.id }),
-        );
+        dispatch(upVoteDetailThreadActionCreator({ userId: authUser.id }));
       }
     }
   };
@@ -128,26 +121,22 @@ function asyncDownVoteDetailThread(threadId) {
     });
 
     if (selectedTreadIsVoted) {
-      dispatch(neutralizeDetailVoteThread({ threadId, userId: authUser.id }));
+      dispatch(neutralizeDetailVoteThread({ userId: authUser.id }));
 
       try {
         await api.neutralizeVoteThread(threadId);
       } catch (error) {
         alert(error.message);
-        dispatch(neutralizeDetailVoteThread({ threadId, userId: authUser.id }));
+        dispatch(neutralizeDetailVoteThread({ userId: authUser.id }));
       }
     } else {
-      dispatch(
-        downVoteDetailThreadActionCreator({ threadId, userId: authUser.id }),
-      );
+      dispatch(downVoteDetailThreadActionCreator({ userId: authUser.id }));
 
       try {
         await api.downVoteThread(threadId);
       } catch (error) {
         alert(error.message);
-        dispatch(
-          downVoteDetailThreadActionCreator({ threadId, userId: authUser.id }),
-        );
+        dispatch(downVoteDetailThreadActionCreator({ userId: authUser.id }));
       }
     }
   };

@@ -238,14 +238,7 @@ describe('commentsReducer function', () => {
 
     const initialState2 = [
       {
-        id: 'comment-2',
-        content: 'Ini adalah komentar kedua',
-        createdAt: '2021-06-21T07:00:00.000Z',
-        owner: {
-          id: 'users-1',
-          name: 'John Doe',
-          avatar: 'https://generated-image-url.jpg',
-        },
+        ...initialState[0],
         upVotesBy: [],
         downVotesBy: ['users-1'],
       },

@@ -205,15 +205,9 @@ describe('threadReducer function', () => {
 
     const initialState2 = [
       {
-        id: 'thread-1',
-        title: 'Thread Pertama',
-        body: 'Ini adalah thread pertama',
-        category: 'General',
-        createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
+        ...initialState[0],
         upVotesBy: [],
         downVotesBy: ['users-1'],
-        totalComments: 0,
       },
     ];
 
