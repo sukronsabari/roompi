@@ -3,7 +3,7 @@ import api from '../../utils/api';
 import { setShowAddThreadModal } from '../showAddThreadModal/action';
 
 const ActionType = {
-  RECEIVE_THREADS: 'RECEIVE_THREAD',
+  RECEIVE_THREADS: 'RECEIVE_THREADS',
   ADD_THREAD: 'ADD_THREAD',
   UP_VOTE_THREAD: 'UP_VOTE_THREAD',
   DOWN_VOTE_THREAD: 'DOWN_VOTE_THREAD',
