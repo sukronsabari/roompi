@@ -1,5 +1,5 @@
 /**
- * test scenario for thread reducer
+ * test scenario for threadReducer
  *  - threadsReducer function
  *    - should return initial value when given by unknown action
  *    - should return threads when given by RECEIVE_THREADS action
