@@ -1,5 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
+import { setCommentContentActionCreator } from '../commentContent/action';
 import {
   clearCommentsActionCreator,
   receiveCommenstActionCreator,
@@ -67,6 +68,7 @@ function asyncReceiveDetailThread(threadId) {
   return async (dispatch) => {
     dispatch(clearDetailThreadActionCreator());
     dispatch(clearCommentsActionCreator());
+    dispatch(setCommentContentActionCreator(''));
     dispatch(showLoading());
 
     try {

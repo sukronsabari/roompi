@@ -1,9 +1,9 @@
 import React, { useId } from 'react';
 import PropTypes from 'prop-types';
 import ctl from '@netlify/classnames-template-literals';
-import { useNavigate, Link } from 'react-router-dom';
-import useInput from '../../hooks/useInput';
+import { Link, useNavigate } from 'react-router-dom';
 import ButtonFullWidth from '../ButtonFullWidth';
+import useInput from '../../hooks/useInput';
 
 const spanLabelStyle = ctl(`
   block
@@ -62,17 +62,19 @@ const passwordHint = ctl(`
 function LoginInput({ login }) {
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
-  const id = useId();
   const navigate = useNavigate();
+  const id = useId();
 
-  const onLogin = (event) => {
-    event.preventDefault();
+  const onLogin = () => {
     login({ email, password });
     navigate('/');
   };
 
   return (
-    <form className="max-w-xl mx-auto px-4 lg:max-w-md" onSubmit={onLogin}>
+    <form
+      className="max-w-xl mx-auto px-4 lg:max-w-md"
+      onSubmit={(event) => event.preventDefault()}
+    >
       <div className="mb-4">
         <label htmlFor={`${id}-email`} className="block">
           <span className={spanLabelStyle}>Email</span>
@@ -80,7 +82,7 @@ function LoginInput({ login }) {
             type="email"
             placeholder="you@example.com"
             id={`${id}-email`}
-            value={email}
+            value={email} // state dikirim lewat pros
             onChange={onEmailChange}
             className={`${inputStyle} peer/email`}
           />
@@ -110,7 +112,9 @@ function LoginInput({ login }) {
         </label>
       </div>
       <div>
-        <ButtonFullWidth type="submit">Login</ButtonFullWidth>
+        <ButtonFullWidth type="submit" handleClick={onLogin}>
+          Login
+        </ButtonFullWidth>
       </div>
       <div className="mt-4">
         <p>
