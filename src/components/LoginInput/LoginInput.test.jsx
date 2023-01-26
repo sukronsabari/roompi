@@ -1,7 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-shadow */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/jsx-filename-extension */
 /**
  * skenario testing
  *

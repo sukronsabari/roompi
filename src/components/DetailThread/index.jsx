@@ -65,11 +65,19 @@ function DetailThread({
   return (
     <article>
       <div className="flex items-center space-x-3 mb-4">
-        <UserProfile avatar={owner.avatar} className="w-[44px] h-[44px]" />
+        <UserProfile
+          alt="thread owner image"
+          avatar={owner.avatar}
+          className="w-[44px] h-[44px]"
+        />
         <div className="flex items-center space-x-3 mb-1 text-slate-500">
-          <p className="font-medium text-dark">{owner.name}</p>
+          <p className="font-medium text-dark" data-testid="thread owner">
+            {owner.name}
+          </p>
           <IconPoint size={5} strokeWidth={8} />
-          <p className="text-sm">{`${postedAtLongDate(createdAt)} ago`}</p>
+          <p className="text-sm" data-testid="detail-createdAt">
+            {`${postedAtLongDate(createdAt)} ago`}
+          </p>
         </div>
       </div>
       <div className="border-b border-b-slate-300 pb-10">
@@ -80,8 +88,8 @@ function DetailThread({
         </div>
         <div className="flex flex-wrap space-x-4">
           <ButtonIconWithCounter
-            title="Like button"
-            ariaLabel="Like this thread"
+            title="like button"
+            ariaLabel="like this thread"
             count={upVotesBy.length}
             handleClick={onUpVoteThreadHandler}
             color={thisThreadIsLiked ? 'text-primary' : 'text-slate-500'}
@@ -90,8 +98,8 @@ function DetailThread({
             <IconThumbUp />
           </ButtonIconWithCounter>
           <ButtonIconWithCounter
-            title="Dislike button"
-            ariaLabel="Dislike this thread"
+            title="dislike button"
+            ariaLabel="dislike this thread"
             count={downVotesBy.length}
             handleClick={onDownVoteThreadHandler}
             color={thisThreadIsDisliked ? 'text-red-400' : 'text-slate-500'}
@@ -100,8 +108,8 @@ function DetailThread({
             <IconThumbDown />
           </ButtonIconWithCounter>
           <ButtonIconWithCounter
-            title="Comment"
-            ariaLabel="Total comment"
+            title="total comment"
+            ariaLabel="total comment"
             count={comments.length}
           >
             <IconMessage2 />

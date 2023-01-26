@@ -35,12 +35,18 @@ function CommentItem({
   };
 
   return (
-    <div className="p-4 pb-6 md:p-6 md:pb-8 border border-slate-300 rounded-md">
+    <div
+      data-testid="comment-item"
+      className="p-4 pb-6 md:p-6 md:pb-8 border border-slate-300 rounded-md"
+    >
       <div className="flex space-x-4 mb-4">
         <UserProfile avatar={owner?.avatar} />
         <div>
           <p className="font-bold">{owner?.name}</p>
-          <p className="text-sm mt-1 text-paragraph">
+          <p
+            data-testid="comment-timeCreated"
+            className="text-sm mt-1 text-paragraph"
+          >
             {`${postedAtLongDate(createdAt)} ago`}
           </p>
         </div>

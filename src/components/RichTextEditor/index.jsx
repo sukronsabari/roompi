@@ -40,7 +40,7 @@ function RichTextEditor({ value, handleChange, border = 'border-slate-400' }) {
   });
 
   return (
-    <div>
+    <div data-testid="rich-text-editor">
       <ReactQuill
         theme="snow"
         value={value}

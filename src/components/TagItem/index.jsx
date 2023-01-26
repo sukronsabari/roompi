@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 function TagItem({ tagName, handleClick, tagActive, role = 'none' }) {
   return (
     <div
+      data-testid="tag-item"
       role={role}
       tabIndex={-1}
       onClick={handleClick}
