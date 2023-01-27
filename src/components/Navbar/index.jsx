@@ -32,7 +32,10 @@ function Navbar({ authUser, onLogout }) {
                   className="flex items-center space-x-2 cursor-pointer"
                   onClick={onOpenMenuHandler}
                 >
-                  <UserProfile avatar={authUser.avatar} />
+                  <UserProfile
+                    alt="user logged profile"
+                    avatar={authUser.avatar}
+                  />
                   <IconChevronDown size={16} />
                 </div>
                 <div

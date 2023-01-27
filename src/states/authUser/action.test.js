@@ -20,7 +20,7 @@
  */
 
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { describe, it, expect, afterEach, vi } from 'vitest';
+import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest';
 import api from '../../utils/api';
 import {
   asyncSetAuthUser,
@@ -38,8 +38,23 @@ const fakeAuthUserResponse = {
 const fakeErrorResponse = new Error('Ups something went wrong');
 
 describe('asyncSetAuthUser thunk function', () => {
+  beforeEach(() => {
+    api._login = api.login;
+    api._putAccessToken = api.putAccessToken;
+    api._getOwnProfile = api.getOwnProfile;
+  });
+
   afterEach(() => {
+    api.login = api._login;
+    api.putAccessToken = api._putAccessToken;
+    api.getOwnProfile = api._getOwnProfile;
+
+    delete api._login;
+    delete api._putAccessToken;
+    delete api._getOwnProfile;
+
     vi.restoreAllMocks();
+    vi.resetAllMocks();
   });
 
   it('should dispatch action correctly when data fetching success', async () => {
