@@ -11,7 +11,7 @@ const ActionType = {
   NEUTRALIZE_VOTE_COMMENT: 'NEUTRALIZE_VOTE_COMMENT',
 };
 
-function receiveCommenstActionCreator(comments) {
+function receiveCommentsActionCreator(comments) {
   return {
     type: ActionType.RECEIVE_COMMENTS,
     payload: {
@@ -183,7 +183,7 @@ function asyncDownVoteComment({ threadId, commentId }) {
 
 export {
   ActionType,
-  receiveCommenstActionCreator,
+  receiveCommentsActionCreator,
   clearCommentsActionCreator,
   addCommentActionCreator,
   upVoteCommentActionCreator,

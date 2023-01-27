@@ -77,7 +77,7 @@ function AuthUserRank({
 AuthUserRank.propTypes = {
   name: PropTypes.string,
   avatar: PropTypes.string,
-  rankPosition: PropTypes.string,
+  rankPosition: PropTypes.number,
   score: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

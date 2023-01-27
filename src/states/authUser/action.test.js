@@ -9,12 +9,12 @@
  *  - disptach (hideLoading())
  *  - alert(error.message);
  *
- * scenario for asyncSetAuthUser
+ * scenario for asyncSetAuthUser thunk function
+ * - asyncSetAuthUser thunk function
+ *  - should dispatch action correctly when data fetching success
+ *  - should dispatch action and call alert when data fetching failed
  *
- * - should dispatch action correctly when data fetching success
- * - should dispatch action and call alert when data fetching failed
- *
- * scenario for asyncUnsetAuthUser
+ * scenario for asyncUnsetAuthUser thunk funtion
  * - asyncUnsetAuthUser thunk function
  *  - should disptach action correctly
  */

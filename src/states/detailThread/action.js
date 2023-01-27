@@ -3,7 +3,7 @@ import api from '../../utils/api';
 import { setCommentContentActionCreator } from '../commentContent/action';
 import {
   clearCommentsActionCreator,
-  receiveCommenstActionCreator,
+  receiveCommentsActionCreator,
 } from '../comments/action';
 
 const ActionType = {
@@ -75,7 +75,7 @@ function asyncReceiveDetailThread(threadId) {
       const detailThread = await api.getDetailThread(threadId);
       const { comments } = detailThread;
       dispatch(receiveDetailThreadActionCreator(detailThread));
-      dispatch(receiveCommenstActionCreator(comments));
+      dispatch(receiveCommentsActionCreator(comments));
     } catch (error) {
       alert(error.message);
     }
