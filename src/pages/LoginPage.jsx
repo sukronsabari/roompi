@@ -15,7 +15,7 @@ function LoginPage() {
       <div className="px-4 lg:flex lg:h-screenCustom lg:px-0">
         <div className="w-full h-full hidden lg:flex lg:items-center lg:justify-center">
           <div className="max-w-sm mr-20">
-            <img src={phoneImage} aria-hidden alt="phone mockup hero image" />
+            <img src={phoneImage} aria-hidden alt="phone image" />
           </div>
         </div>
         <div className="w-full bg-white pt-10 lg:pt-14">
