@@ -19,6 +19,7 @@
     "react/jsx-props-no-spreading": "off",
     "object-curly-newline": "off",
     "react/button-has-type": "off",
-    "newline-per-chained-call": "off"
+    "newline-per-chained-call": "off",
+    "no-underscore-dangle": "off"
   }
 }

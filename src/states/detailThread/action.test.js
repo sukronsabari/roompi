@@ -25,15 +25,13 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { asyncReceiveDetailThread } from './action';
-import { clearDetailThreadActionCreator } from './action';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
+import { asyncReceiveDetailThread, clearDetailThreadActionCreator, receiveDetailThreadActionCreator } from './action';
 import {
   clearCommentsActionCreator,
   receiveCommentsActionCreator,
 } from '../comments/action';
 import { setCommentContentActionCreator } from '../commentContent/action';
-import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import { receiveDetailThreadActionCreator } from './action';
 
 import api from '../../utils/api';
 

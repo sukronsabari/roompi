@@ -7,6 +7,7 @@
     "dev": "vite --port=5173",
     "build": "vite build",
     "preview": "vite preview",
+    "lint": "eslint ./src",
     "test": "vitest",
     "e2e": "cypress run",
     "ci:test": "vitest --run && start-server-and-test dev http-get://localhost:5173 e2e"
